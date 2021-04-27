@@ -1,0 +1,227 @@
+.large-property-filter {
+  padding:30px 0;
+
+  @include media-breakpoint-up(lg) {
+    padding:50px 0;
+  }
+  @include media-breakpoint-up(xl) {
+    padding:75px 0;
+  }
+  @include respond-to("large") {
+    padding:75px 0 100px;
+  }
+  @include respond-to("extra") {
+    padding:90px 0 135px;
+  }
+  &-wrapper {
+    h2 {
+      @extend %latoBold;
+      @extend %h1;
+      margin-bottom: 1rem;
+
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 20px;
+      }
+      @include respond-to("large") {
+        margin-bottom: 25px;
+      }
+      @include respond-to("extra") {
+        margin-bottom: 35px;
+      }
+    }
+    p {
+      @extend %monsterLight;
+      @extend %largeText;
+      margin:0;
+
+      @include media-breakpoint-up(xl) {
+        width:500px;
+      }
+      @include respond-to("extra") {
+        width:555px;
+      }
+    }
+    // Filter Buttons
+    .filter-buttons {
+      margin-top:20px;
+
+      ul {
+        list-style: none;
+        padding:0;
+        margin:0;
+        width:100%;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+        @include media-breakpoint-up(xl) {
+          justify-content: flex-end;
+        }
+        li {
+          cursor:pointer;
+          padding-bottom:5px;
+          border-bottom:none;
+          border-bottom:2px solid transparent;
+          transition:all 0.5s ease-in-out;
+
+          span {
+            @extend %monsterRegular;
+            transition:all 0.5s ease-in-out;
+            opacity:0.5;
+            font-size:14px;
+
+            @include media-breakpoint-up(sm) {
+              font-size:16px;
+            }
+            @include respond-to("large") {
+              font-size:18px;
+            }
+            @include respond-to("extra") {
+              font-size:20px;
+            }
+          }
+          &.active {
+            border-color:$primary;
+
+            span {
+              @extend %monsterMedium;
+              opacity:1;
+            }
+          }
+          &:not(:last-of-type) {
+            @include media-breakpoint-up(xl) {
+              margin-right: 75px;
+            }
+            @include respond-to("large") {
+              margin-right: 100px;
+            }
+            @include respond-to("extra") {
+              margin-right: 165px;
+            }
+          }
+        }
+      }
+    }
+    // Properties
+    .view-properties {
+      display:flex;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      margin-top:30px;
+
+      @include media-breakpoint-up(lg) {
+        margin-top:50px;
+      }
+      @include respond-to("large") {
+        margin-top:75px;
+      }
+      @include respond-to("extra") {
+        margin-top:90px;
+      }
+      .property {
+        position:relative;
+        display:none;
+        margin:0 0 16px;
+        @extend %backgroundImage;
+        transition:all 0.5s ease-in-out;
+        width:100%;
+        height:250px;
+        
+        @include media-breakpoint-up(md) {
+          width:calc(100% / 2 - 16px);
+          height:225px;
+          margin:0 8px 16px;
+        }
+        @include media-breakpoint-up(lg) {
+          width:calc(100% / 3 - 16px);
+          height:250px;
+        }
+        @include respond-to("large") {
+          height:325px;
+        }
+        @include respond-to("extra") {
+          height:425px;
+        }
+        &-overlay {
+          opacity:0;
+          position:absolute;
+          width:100%;
+          bottom:0;
+          transition:all 0.5s ease-in-out;
+          width:100%;
+          background:rgba(9,91,166, 0.8);
+          display:flex;
+          align-items: center;
+          justify-content: space-between;
+          padding:15px;
+
+          @include media-breakpoint-up(xl) {
+            padding:20px;
+          }
+          @include respond-to("extra") {
+            padding:30px;
+          }
+          @media (hover:none) {
+            opacity:1;
+          }
+          h3 {
+            color:$white;
+            margin:0;
+            @extend %monsterMedium;
+            margin-right: 10px;
+            font-size:16px;
+            width:100%;
+
+            @include media-breakpoint-up(xl) {
+              width:auto;
+            }
+            @include respond-to("large") {
+              font-size:18px;
+            }
+            @include respond-to("extra") {
+              font-size:20px;
+            }
+            a {
+              display:block;
+            }
+          }
+          a {
+            align-items: center;
+            justify-content: flex-end;
+            text-decoration: none;
+            color:$white;
+            @extend %monsterMedium;
+            font-size:14px;
+            width:100%;
+            display:none;
+
+            @include media-breakpoint-up(md) {
+              display:flex;
+            }
+            @include media-breakpoint-up(xl) {
+              width:125px;
+            }
+            @include respond-to("extra") {
+              font-size:16px;
+            }
+            i {
+              color:$white;
+              font-size:18px;
+              margin-left: 20px;
+              display:none;
+
+              @include media-breakpoint-up(xl) {
+                display:block;
+              }
+            }
+          }
+        }
+        &:hover {
+          .property-overlay {
+            opacity:1;
+          }
+        }
+      }
+    }
+  }
+}

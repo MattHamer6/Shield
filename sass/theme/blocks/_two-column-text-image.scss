@@ -1,0 +1,103 @@
+.two-column-text-image {
+  &-wrapper {
+    position:relative;
+
+    .text {
+      background:$white;
+      
+      &-wrapper {
+        width:100%;
+        padding:30px 0;
+
+        @include media-breakpoint-up(md) {
+          width:50%;
+          padding:30px 30px 30px 0;
+        }
+        @include media-breakpoint-up(xl) {
+          padding:50px 50px 50px 0;
+          width:45%;
+        }
+        @include respond-to("large") {
+          padding:50px 75px 50px 0;
+        }
+        @include respond-to("extra") {
+          padding:90px 140px 90px 0;
+        }
+        h2 {
+          @extend %latoBold;
+          @extend %h1;
+          text-transform: capitalize;
+          margin-bottom: 20px;
+          
+          @include media-breakpoint-up(xl) {
+            margin-bottom: 30px;
+          }
+          @include respond-to("large") {
+            margin-bottom: 45px;
+          }
+          @include respond-to("extra") {
+            margin-bottom: 65px;
+          }
+        }
+        aside {
+          width:auto;
+          margin-bottom: 30px;
+          
+          @include media-breakpoint-up(xl) {
+            margin-bottom: 50px;
+          }
+          @include respond-to("large") {
+            margin-bottom: 85px;
+          }
+          @include respond-to("extra") {
+            width:555px;
+            margin-bottom: 150px;
+          }
+          p,a {
+            @extend %monsterLight;
+            @extend %largeText;
+
+            &:last-of-type {
+              margin:0;
+            }
+          }
+          b,strong {
+            @extend %monsterMedium;
+            @extend %largeText;
+          }
+        }
+        .button-wrapper {
+          display:flex;
+          justify-content: flex-end;
+
+          @include respond-to("large") {
+            padding-right: 60px;
+          }
+          a {
+            display:inline-block;
+            @extend %largeText;
+            @extend %monsterMedium;
+            color:$black;
+          }
+        }
+      }
+    }
+    .image {
+      @extend %backgroundImage;
+      position:absolute;
+      top:0;
+      right:0;
+      height:100%;
+      width:50%;
+      display:none;
+
+      @include media-breakpoint-up(md) {
+        width:50%;
+        display:block;
+      }
+      @include media-breakpoint-up(xl) {
+        width:55%;
+      }
+    }
+  }
+}

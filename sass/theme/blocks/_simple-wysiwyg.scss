@@ -1,0 +1,38 @@
+.simple-wysiwyg {
+  padding:30px 0;
+
+  @include media-breakpoint-up(xl) {
+    padding:50px 0;
+  }
+  @include respond-to("large") {
+    padding:75px 0;
+  }
+  @include respond-to("extra") {
+    padding:90px 0;
+  }
+  &-wrapper {
+    width:100%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    .content {
+      width:100%;
+
+      @include respond-to("large") {
+        width:1200px;
+      }
+      @include respond-to("extra") {
+        width:1380px;
+      }
+      p,a,span {
+        @extend %monsterLight;
+        @extend %largeText;
+      }
+      b,strong {
+        @extend %monsterMedium;
+        @extend %largeText;
+      }
+    }
+  }
+}

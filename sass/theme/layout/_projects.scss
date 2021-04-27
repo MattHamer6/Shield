@@ -1,0 +1,244 @@
+.archive-properties {
+  padding:85px 0;
+
+  &-wrapper {
+    // Filter Buttons
+    .filter-buttons {
+      margin-top:20px;
+
+      ul {
+        list-style: none;
+        padding:0;
+        margin:0;
+        width:100%;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        li {
+          cursor:pointer;
+          padding-bottom:5px;
+          border-bottom:none;
+          border-bottom:2px solid transparent;
+          transition:all 0.5s ease-in-out;
+          width:50%;
+          text-align: center;
+          margin-bottom: 10px;
+
+          @include media-breakpoint-up(sm) {
+            width:auto;
+            text-align: left;
+            margin-bottom: 0;
+          }
+          span {
+            @extend %monsterRegular;
+            transition:all 0.5s ease-in-out;
+            opacity:0.5;
+            font-size:14px;
+
+            @include media-breakpoint-up(sm) {
+              font-size:16px;
+            }
+            @include respond-to("large") {
+              font-size:18px;
+            }
+            @include respond-to("extra") {
+              font-size:20px;
+            }
+          }
+          &.active {
+            border-color:$primary;
+
+            span {
+              @extend %monsterMedium;
+              opacity:1;
+            }
+          }
+          &:not(:last-of-type) {
+            margin-right: 0;
+
+            @include media-breakpoint-up(sm) {
+              margin-right:20px;
+            }
+            @include media-breakpoint-up(md) {
+              margin-right: 50px;
+            }
+            @include media-breakpoint-up(xl) {
+              margin-right: 75px;
+            }
+            @include respond-to("large") {
+              margin-right: 100px;
+            }
+            @include respond-to("extra") {
+              margin-right: 160px;
+            }
+          }
+        }
+      }
+    }
+    // Properties
+    .view-properties {
+      &-wrapper {
+        display:flex;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top:30px;
+
+        @include media-breakpoint-up(lg) {
+          margin-top:50px;
+        }
+        @include respond-to("large") {
+          margin-top:75px;
+        }
+        @include respond-to("extra") {
+          margin-top:90px;
+        }
+        .property {
+          position:relative;
+          display:none;
+          margin:0 0 16px;
+          @extend %backgroundImage;
+          transition:all 0.5s ease-in-out;
+          width:100%;
+          height:250px;
+          
+          @include media-breakpoint-up(md) {
+            width:calc(100% / 2 - 16px);
+            height:225px;
+            margin:0 8px 16px;
+          }
+          @include media-breakpoint-up(lg) {
+            width:calc(100% / 3 - 16px);
+            height:250px;
+          }
+          @include respond-to("large") {
+            height:325px;
+          }
+          @include respond-to("extra") {
+            height:425px;
+          }
+          // Hover overlay
+          &-overlay {
+            opacity:0;
+            position:absolute;
+            width:100%;
+            bottom:0;
+            transition:all 0.5s ease-in-out;
+            width:100%;
+            background:rgba(9,91,166, 0.8);
+            display:flex;
+            align-items: center;
+            justify-content: space-between;
+            padding:15px;
+
+            @include media-breakpoint-up(xl) {
+              padding:20px;
+            }
+            @include respond-to("extra") {
+              padding:30px;
+            }
+            @media (hover:none) {
+              opacity:1;
+            }
+            h3 {
+              color:$white;
+              margin:0;
+              @extend %monsterMedium;
+              margin-right: 10px;
+              font-size:16px;
+              width:100%;
+
+              @include media-breakpoint-up(xl) {
+                width:auto;
+              }
+              @include respond-to("large") {
+                font-size:18px;
+              }
+              @include respond-to("extra") {
+                font-size:20px;
+              }
+              a {
+                display:block;
+              }
+            }
+            a {
+              align-items: center;
+              justify-content: flex-end;
+              text-decoration: none;
+              color:$white;
+              @extend %monsterMedium;
+              font-size:14px;
+              width:100%;
+              display:none;
+
+              @include media-breakpoint-up(md) {
+                display:flex;
+              }
+              @include respond-to("extra") {
+                font-size:16px;
+              }
+              i {
+                color:$white;
+                font-size:18px;
+                margin-left: 20px;
+                display:none;
+
+                @include media-breakpoint-up(xl) {
+                  display:block;
+                }
+              }
+            }
+          }
+          // Sold
+          &-sold {
+            display:none;
+            position:absolute;
+            width:100%;
+            bottom:0;
+            transition:all 0.5s ease-in-out;
+            width:100%;
+            background:$primary;
+            align-items: center;
+            justify-content: space-between;
+            padding:15px;
+
+            h3 {
+              color:$white;
+              @extend %monsterMedium;
+              margin:0;
+              text-transform: uppercase;
+              font-size:18px;
+              
+              @include media-breakpoint-up(lg) {
+                font-size:20px;
+              }
+              @include media-breakpoint-up(xl) {
+                font-size:24px;
+              }
+              @include respond-to("large") {
+                font-size:28px;
+              }
+              @include respond-to("extra") {
+                font-size:32px;
+              }
+            }
+          }
+          &.sold {
+            .property-overlay {
+              display: none;
+            }
+            .property-sold {
+              display:flex;
+            }
+          }
+          &:hover {
+            .property-overlay {
+              opacity:1;
+            }
+          }
+        }
+      }
+    }
+  }
+}

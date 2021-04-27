@@ -1,0 +1,145 @@
+.projects-content {
+  padding:30px 0 75px;
+
+  @include media-breakpoint-up(xl) {
+    padding:50px 0 100px;
+  }
+  @include respond-to("large") {
+    padding:75px 0 150px;
+  }
+  @include respond-to("extra") {
+    padding:75px 0 225px;
+  }
+  &-wrapper {
+    h2 {
+      @extend %h1;
+      @extend %latoBold;
+      text-transform: capitalize;
+      margin-bottom: 20px;
+
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 30px;
+      }
+      @include respond-to("large") {
+        margin-bottom: 50px;
+      }
+      @include respond-to("extra") {
+        margin-bottom: 70px;
+      }
+    }
+    .content {
+      display:flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      
+      &-left, &-right {
+        width:100%;
+
+        @include media-breakpoint-up(lg) {
+          width:calc(100% / 2 - 25px);
+        }
+        @include media-breakpoint-up(xl) {
+          width:calc(100% / 2 - 50px);
+        }
+        p,span {
+          @extend %largeText;
+          @extend %monsterLight;
+        }
+      }
+      &-right {
+        
+        .details {
+          display:flex;
+          align-items: flex-start;
+          flex-wrap: wrap;
+          margin-top:30px;
+
+          @include media-breakpoint-up(sm) {
+            justify-content: space-between;
+          }
+          @include media-breakpoint-up(lg) {
+            justify-content: flex-start;
+          }
+          @include media-breakpoint-up(xl) {
+            margin-top: 50px;
+          }
+          @include respond-to("large") {
+            margin-top: 75px;
+          }
+          @include respond-to("extra") {
+            margin-top:100px;
+          }
+          &-wrapper {
+            width:100%;
+
+            @include media-breakpoint-up(sm) {
+              width:auto;
+            }
+            @include media-breakpoint-up(lg) {
+              width:100%;
+              margin-bottom: 20px;
+              margin-right: 0;
+            }
+            @include respond-to("extra") {
+              width: calc(100% / 2 - 35px);
+              margin-right: 35px;
+              margin-bottom: 0;
+            }
+            ul {
+              list-style: none;
+              padding:0;
+              margin:0;
+
+              li {
+                @extend %latoBold;
+                color:$primary;
+                padding-left:5px;
+                @extend %h2;
+
+                &::marker {
+                  content:'-';
+                }
+              }
+            }
+          }
+          .downloads {
+            width:100%;
+            margin-top:20px;
+
+            @include media-breakpoint-up(sm) {
+              width:auto;
+              margin-top: 0;
+            }
+            @include respond-to("extra") {
+              width: calc(100% / 2 - 35px);
+              margin-left: 35px;
+            }
+
+            a {
+              display:flex;
+              align-items: center;
+              justify-content: flex-start;
+              color:$black;
+              @extend %monsterMedium;
+              @extend %h2;
+
+              @include media-breakpoint-up(sm) {
+                justify-content: space-between;
+              }
+              i {
+                color:$black;
+                @extend %h2;
+                margin-left:1rem;
+
+                @include respond-to("extra") {
+                  margin-left: 0;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

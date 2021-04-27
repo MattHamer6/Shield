@@ -1,0 +1,359 @@
+.small-property-filter {
+  &-wrapper {
+    position:relative;
+    display:flex;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    
+    .text {
+      background:$secondary;
+      height:100%;
+      width:100%;
+      padding:30px 15px;
+
+      @include media-breakpoint-up(sm) {
+        padding: 30px 15px;
+      }
+      @include media-breakpoint-up(lg) {
+        width:50%;
+        padding: 75px 30px 75px 30px;
+      }
+      @include media-breakpoint-up(xl) {
+        padding: 75px 30px 75px 30px;
+      }
+      @include respond-to("large") {
+        padding: 100px 50px 100px 50px;
+      }
+      @include respond-to("extra") {
+        padding:150px 60px 125px 140px;
+      }
+      &-wrapper {
+        h2 {
+          color:$white;
+          @extend %h1;
+          @extend %monsterLight;
+          margin-bottom: 30px;
+
+          @include media-breakpoint-up(xl) {
+            margin-bottom: 40px;
+          }
+          @include respond-to("large") {
+            margin-bottom: 50px;
+          }
+          @include respond-to("extra") {
+            margin-bottom: 60px;
+          }
+          span {
+            @extend %monsterMedium;
+          }
+        }
+        p {
+          @extend %monsterRegular;
+          @extend %largeText;
+          color:$white;
+          margin:0;
+        }
+        div {
+          display:flex;
+          align-items: center;
+          justify-content: flex-start;
+          margin-top: 30px;
+          
+          @include media-breakpoint-up(xl) {
+            margin-top: 40px;
+          }
+          @include respond-to("large") {
+            margin-top: 50px;
+          }
+          @include respond-to("extra") {
+            margin-top: 60px;
+          }
+          a {
+            display:inline-block;
+            color:$white;
+            @extend %monsterMedium;
+            @extend %largeText;
+          }
+        }
+      }
+    }
+    .filter-properties {
+      background:$grey-200;
+      height:100%;
+      width:100%;
+      position:relative;
+      right:0;
+      padding:30px 15px;
+
+      @include media-breakpoint-up(sm) {
+        padding: 30px;
+      }
+      @include media-breakpoint-up(lg) {
+        position:absolute;
+        width:50%;
+        padding: 45px 30px 45px 30px;
+      }
+      @include media-breakpoint-up(xl) {
+        padding: 45px 30px 45px 30px;
+      }
+      @include respond-to("large") {
+        padding: 45px 40px 45px 40px;
+      }
+      @include respond-to("extra") {
+        padding:45px 100px 45px 65px;
+      }
+      .filter-buttons {
+        margin-bottom: 30px;
+
+        @include media-breakpoint-up(xl) {
+          margin-bottom: 40px;
+        }
+        @include respond-to("large") {
+          margin-bottom: 50px;
+        }
+        @include respond-to("extra") {
+          margin-bottom: 60px;
+        }
+        ul {
+          list-style: none;
+          padding:0;
+          margin:0;
+          width:100%;
+          display:flex;
+          align-items: center;
+          justify-content: space-between;
+          flex-wrap: wrap;
+
+          li {
+            cursor:pointer;
+            padding-bottom:5px;
+            border-bottom:none;
+            border-bottom:2px solid transparent;
+            transition:all 0.5s ease-in-out;
+            width:50%;
+            margin-bottom: 10px;
+            text-align: center;
+
+            @include media-breakpoint-up(sm) {
+              width:auto;
+            }
+            @include media-breakpoint-up(lg) {
+              width:50%;
+            }
+            @include media-breakpoint-up(xl) {
+              width:auto;
+              margin-bottom: 0;
+              text-align: left;
+            }
+            span {
+              @extend %monsterRegular;
+              transition:all 0.5s ease-in-out;
+              opacity:0.5;
+              font-size:14px;
+  
+              @include media-breakpoint-up(sm) {
+                font-size:16px;
+              }
+              @include respond-to("large") {
+                font-size:18px;
+              }
+              @include respond-to("extra") {
+                font-size:20px;
+              }
+            }
+            &.active {
+              border-color:$primary;
+  
+              span {
+                @extend %monsterMedium;
+                opacity:1;
+              }
+            }
+          }
+        }
+      }
+      .view-properties {
+        overflow-y: scroll;
+        height:375px;
+
+        @include media-breakpoint-up(lg) {
+          height:375px;
+        }
+        @include media-breakpoint-up(xl) {
+          height:400px;
+        }
+        @include respond-to("large") {
+          height:475px;
+        }
+        @include respond-to("extra") {
+          height:560px;
+        }
+        &::-webkit-scrollbar {
+          width: 0;
+          background: transparent;
+        }
+        &-wrapper {
+          display:flex;
+          flex-direction: column;
+          align-items: center;
+
+          .property {
+            position:relative;
+            display:none;
+            margin:0 0 16px;
+            @extend %backgroundImage;
+            transition:all 0.5s ease-in-out;
+            margin-bottom:20px;
+            width:100%;
+            height:200px;
+            
+            @include media-breakpoint-up(sm) {
+              width:400px;
+              height:250px;
+            }
+            @include media-breakpoint-up(md) {
+              width:500px;
+              height:275px;
+            }
+            @include media-breakpoint-up(lg) {
+              width:100%;
+              height:250px;
+            }
+            @include media-breakpoint-up(xl) {
+              width:450px;
+              height:275px;
+              margin-bottom:30px;
+            }
+            @include respond-to("large") {
+              width:500px;
+              height:300px;
+              margin-bottom:50px;
+            }
+            @include respond-to("extra") {
+              width:535px;
+              height:425px;
+              margin-bottom:65px;
+            }
+            &-overlay {
+              opacity:0;
+              position:absolute;
+              width:100%;
+              bottom:0;
+              transition:all 0.5s ease-in-out;
+              width:100%;
+              background:rgba(9,91,166, 0.8);
+              display:flex;
+              align-items: center;
+              justify-content: space-between;
+              padding:15px;
+    
+              @include media-breakpoint-up(xl) {
+                padding:20px;
+              }
+              @include respond-to("extra") {
+                padding:30px;
+              }
+              @media (hover:none) {
+                opacity:1;
+              }
+              h3 {
+                color:$white;
+                margin:0;
+                @extend %monsterMedium;
+                margin-right: 10px;
+                font-size:16px;
+                width:100%;
+    
+                @include media-breakpoint-up(xl) {
+                  width:auto;
+                }
+                @include respond-to("large") {
+                  font-size:18px;
+                }
+                @include respond-to("extra") {
+                  font-size:20px;
+                }
+                a {
+                  display:block;
+                }
+              }
+              a {
+                align-items: center;
+                justify-content: flex-end;
+                text-decoration: none;
+                color:$white;
+                @extend %monsterMedium;
+                font-size:14px;
+                width:100%;
+                display:none;
+    
+                @include media-breakpoint-up(md) {
+                  display:flex;
+                }
+                @include respond-to("extra") {
+                  font-size:16px;
+                }
+                i {
+                  color:$white;
+                  font-size:18px;
+                  margin-left: 20px;
+                  display:none;
+    
+                  @include media-breakpoint-up(xl) {
+                    display:block;
+                  }
+                }
+              }
+            }
+            &-sold {
+              display:none;
+              position:absolute;
+              width:100%;
+              bottom:0;
+              transition:all 0.5s ease-in-out;
+              width:100%;
+              background:$primary;
+              align-items: center;
+              justify-content: space-between;
+              padding:15px;
+
+              h3 {
+                color:$white;
+                @extend %monsterMedium;
+                margin:0;
+                text-transform: uppercase;
+                font-size:18px;
+              
+                @include media-breakpoint-up(lg) {
+                  font-size:20px;
+                }
+                @include media-breakpoint-up(xl) {
+                  font-size:24px;
+                }
+                @include respond-to("large") {
+                  font-size:28px;
+                }
+                @include respond-to("extra") {
+                  font-size:32px;
+                }
+              }
+            }
+            &.sold {
+              .property-overlay {
+                display: none;
+              }
+              .property-sold {
+                display:flex;
+              }
+            }
+            &:hover {
+              .property-overlay {
+                opacity:1;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

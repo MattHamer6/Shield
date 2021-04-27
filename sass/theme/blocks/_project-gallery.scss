@@ -1,0 +1,119 @@
+.project-gallery {
+  position:relative;
+
+  &-wrapper {
+    .slide {
+      @extend %backgroundImage;
+      height:100vh;
+      max-height: 1080px;
+
+      .container {
+        position:relative;
+      }
+      &-wrapper {
+        height:100%;
+        width:100%;
+        position:relative;
+
+        .content {
+          position:absolute;
+          z-index: 99;
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+          align-items: flex-start;
+          flex-direction: column;
+          transition:all 1s ease-in-out;
+          bottom:85px;
+
+          @include media-breakpoint-up(lg) {
+            align-items: flex-end;
+            flex-direction: row;
+          }
+        
+          h2 {
+            color:$white;
+            @extend %latoLight;
+            @extend %h1;
+            width:100%;
+          }
+          .property-details {
+            width:100%;
+
+            @include media-breakpoint-up(lg) {
+              width:auto;
+            }
+            b {
+              display:block;
+              color:$white;
+              @extend %largeText;
+              @extend %latoBold;
+              margin-bottom: 5px;
+
+              @include media-breakpoint-up(lg) {
+                margin-bottom: 10px;
+              }
+              @include respond-to("large") {
+                margin-bottom: 15px;
+              }
+            }
+            div {
+              display:flex;
+              align-items: center;
+              justify-content: space-between;
+              width:100%;
+
+              @include media-breakpoint-up(lg) {
+                justify-content: flex-start;
+                width:auto;
+              }
+              span {
+                color:$white;
+                @extend %monsterMedium;
+                @extend %h2;
+              }
+            }
+          }
+        }
+      }
+      .overlay {
+        position:absolute;
+        width:100%;
+        height:100%;
+        top:0;
+        background:$black;
+        opacity:0.25;
+      }
+    }
+  }
+  .slider-dots {
+    position:absolute;
+    width:100%;
+    z-index: 5;
+    bottom:45px;
+
+    &-wrapper-gallery {
+      ul {
+        display:flex;
+        list-style: none;
+        margin:0;
+        padding:0;
+
+        li {
+          cursor:pointer;
+          width:100%;
+          height:2px;
+          transition:all 0.5s ease-in-out;
+          background:$grey-100;
+
+          &.slick-active {
+            background:$primary;
+          }
+          button {
+            display:none;
+          }
+        }
+      }
+    }
+  }
+}
